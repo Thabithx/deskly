@@ -1,0 +1,3 @@
+Deskly
+step 1: created folder structure. Used php files due to dynamic (non-static) pages. index.php is out cuz the server will first check for that file inside the project folder or else i might have to change XAMPP DocumentRoot.
+step 2: created reusable components in an includes folder and linked them in my index.php file. Designed header with pathe fetched and stored in varibales.designed footer, set up paths
