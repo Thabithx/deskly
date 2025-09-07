@@ -4,40 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deskly - Home</title>
-    <link rel="stylesheet" href="frontend/assets/css/styles.css?">
+    <link rel="stylesheet" href="/deskly/frontend/assets/css/styles.css">
 </head>
 <body>
+    <?php ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);?>
+
+    <?php include __DIR__ . '/backend/controllers/db.php'; ?>
+    <?php include __DIR__ . '/frontend/includes/title.php'; ?>
+
     <?php include __DIR__ . '/frontend/includes/header.php'; ?>
+    
 
     <div id="banner-bg">
         <div id="banner-text">
             <h2>Healthy Desk,</h2>
             <h2 style="color: rgb(58, 58, 58)">Healthy Mind.</h2>
-            <a href="frontend/pages/store.php"><button id="banner-button">SHOP</button></a>
+            <a href="/deskly/frontend/pages/store.php"><button id="banner-button">SHOP</button></a>
         </div>
     </div>
     <div id="category-div">
         <div class="category-card">
-            <img src="frontend/assets/images/ergonomics.png" alt="">
+            <a href="/deskly/frontend/pages/ergonomics.php"><img src="/deskly/frontend/assets/images/ergonomics.png" alt=""></a>
         </div>
         <div class="category-card">
-            <img src="frontend/assets/images/wellness.png" alt="">
+            <img src="/deskly/frontend/assets/images/wellness.png" alt="">
         </div>
         <div class="category-card">
-            <img src="frontend/assets/images/decors.png" alt="">
+            <img src="/deskly/frontend/assets/images/decors.png" alt="">
         </div>
         <div class="category-card">
-            <img src="frontend/assets/images/accessories.png" alt="">
+            <img src="/deskly/frontend/assets/images/accessories.png" alt="">
         </div>
     </div>
 
-    <div style="margin: 20px 15px;">
-        <p style="font-weight:700; font-size: 20px; margin: 10px 0;">Featured</p>
-        <div id="featured-products"></div>
-    </div>`
+    <div id="featured">
+        <?php renderTitle("Fresh picks.","Discover what’s trending today.") ?>
+        <?php $featuredProducts = fetchFeaturedProducts(5); ?>
+        <?php include __DIR__ . '/frontend/includes/featured.php'; ?>
+    </div>
 
     <?php include __DIR__ . '/frontend/includes/footer.php'; ?>
 
-    <script src="frontend/assets/js/script.js"></script>
+    <script src="/deskly/frontend/assets/js/script.js"></script>
 </body>
 </html>

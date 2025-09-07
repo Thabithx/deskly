@@ -275,3 +275,62 @@ footer{
 .add-to-cart:hover{
    background: #333;
 }
+
+#featured-div{
+   display: flex;
+   width: 100%;
+   height: 500px;
+   
+}
+
+.featured-div-products{
+   width: 50%;
+   height: 100%;
+   background-size: cover;
+   background-position: center calc(100% + 80px);
+   background-repeat: no-repeat;
+   display: flex;
+   justify-content: center;
+   align-items:center;
+   position: relative;
+}
+
+#featured-products-text{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  margin-left: 15px;
+}
+
+#featured-products-text p{
+   font-size: 1rem;
+   color: #000;
+   margin: 0px;
+   font-weight: 300;
+}
+#featured-products-text h1{
+   font-size: 1.5rem;
+   color: #000;
+   margin: 0px;
+   font-weight: 500;
+}
+
+#featured{
+   margin: 20px 15px;
+}
+.title-div{
+   font-weight:700; 
+   font-size: 20px; 
+   margin: 10px 0;
+   font-size: 1.7rem;
+   margin: 20px 20px;
+   display: flex;
+}
+
+.title-1{
+   color: #1e1e1e;
+}
+.title-2{
+   color: #6a6969;
+}

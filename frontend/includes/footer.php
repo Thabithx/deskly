@@ -1,17 +1,3 @@
-<?php
-$isInPagesDirectory = strpos($_SERVER['REQUEST_URI'], '/frontend/pages/') !== false;
-$isInFrontendDirectory = strpos($_SERVER['REQUEST_URI'], '/frontend/') !== false && !$isInPagesDirectory;
-$isInRootDirectory = !$isInFrontendDirectory && !$isInPagesDirectory;
-
-// Set base path prefix for assets and links
-if ($isInPagesDirectory) {
-    $basePathPrefix = '../';
-} elseif ($isInFrontendDirectory) {
-    $basePathPrefix = '';
-} else {
-    $basePathPrefix = 'frontend/';
-}
-?>
 <footer>
     <div>
         <p id="subscribe">Subscribe.</p>
@@ -23,23 +9,23 @@ if ($isInPagesDirectory) {
     <div id="footer-links-div">
         <div class="footer-links">
             <p>EXPLORE</p>
-            <a href="<?php echo $basePathPrefix; ?>pages/store.php">Store</a>
-            <a href="<?php echo $basePathPrefix; ?>pages/accessories.php">Accessories</a>
-            <a href="<?php echo $basePathPrefix; ?>pages/ergonomics.php">Ergonomics</a>
-            <a href="<?php echo $basePathPrefix; ?>pages/wellness.php">Wellness</a>
-            <a href="<?php echo $basePathPrefix; ?>pages/decor.php">Decor</a>
+            <a href="/deskly/frontend/pages/store.php">Store</a>
+            <a href="/deskly/frontend/pages/accessories.php">Accessories</a>
+            <a href="/deskly/frontend/pages/ergonomics.php">Ergonomics</a>
+            <a href="/deskly/frontend/pages/wellness.php">Wellness</a>
+            <a href="/deskly/frontend/pages/decor.php">Decor</a>
         </div>
         <div class="footer-links">
             <p>SUPPORT</p>
-            <a href="<?php echo $basePathPrefix; ?>pages/contact.php">Contact Us</a>
-            <a href="<?php echo $basePathPrefix; ?>pages/terms.php">Terms & Conditions</a>
-            <a href="<?php echo $basePathPrefix; ?>pages/terms.php">Privacy Policy</a>
+            <a href="/deskly/frontend/pages/contact.php">Contact Us</a>
+            <a href="/deskly/frontend/pages/terms.php">Terms & Conditions</a>
+            <a href="/deskly/frontend/pages/terms.php">Privacy Policy</a>
         </div>
         <div class="footer-links">
             <p>COMPANY</p>
-            <a href="<?php echo $basePathPrefix; ?>pages/about.php">About Us</a>
-            <a href="<?php echo $basePathPrefix; ?>pages/store.php">Blog</a>
-            <a href="<?php echo $basePathPrefix; ?>pages/store.php">Newsletter</a>
+            <a href="/deskly/frontend/pages/about.php">About Us</a>
+            <a href="/deskly/frontend/pages/store.php">Blog</a>
+            <a href="/deskly/frontend/pages/store.php">Newsletter</a>
         </div>
         <div class="footer-links">
             <p>CONNECT</p>
