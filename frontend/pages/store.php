@@ -8,18 +8,100 @@
 </head>
 <body>
     <?php include __DIR__ . '/../includes/header.php'; ?>
+    <?php include __DIR__ . '/../../backend/controllers/db.php'; ?>
+    <?php 
+    $Products = fetchProducts();
+    
+    $sort = $_GET['sort'] ?? 'newest';
+    $category = $_GET['category'] ?? '';
+    $minPrice = $_GET['minPrice'] ?? '';
+    $maxPrice = $_GET['maxPrice'] ?? '';
 
-    <main>
-        <section class="store-section">
+    $Products = array_filter($Products, function($product) use ($category, $minPrice, $maxPrice) {
+        $pass = true;
+        if ($category !== '' && $product['category'] !== $category) {
+            $pass = false;
+        }
+        if ($minPrice !== '' && $product['price'] < $minPrice) {
+            $pass = false;
+        }
+        if ($maxPrice !== '' && $product['price'] > $maxPrice) {
+            $pass = false;
+        }
+        return $pass;
+    });
+
+    usort($Products, function($a, $b) use ($sort) {
+        if ($sort === 'price_asc') {
+            return $a['price'] <=> $b['price'];
+        } elseif ($sort === 'price_desc') {
+            return $b['price'] <=> $a['price'];
+        } else { 
+            return $b['id'] <=> $a['id'];
+        }
+    });
+    ?>
+
+    <div id="store-page">
+        <div id="controls">
+            <form method="get" id="filter-form">
+                <div id="sort-products">
+                    <label for="sort">Sort by:</label>
+                    <select name="sort" id="sort">
+                        <option value="newest" <?php if($sort=="newest") echo "selected"; ?>>Newest</option>
+                        <option value="price_asc" <?php if($sort=="price_asc") echo "selected"; ?>>Price: Low to High</option>
+                        <option value="price_desc" <?php if($sort=="price_desc") echo "selected"; ?>>Price: High to Low</option>
+                    </select>
+                </div>
+
+                <div id="filter-products">
+                    <div>
+                        <label>Category:</label>
+                        <select name="category" id="category-filter">
+                            <option value="" <?php if($category=="") echo "selected"; ?>>All</option>
+                            <option value="Ergonomics" <?php if($category=="Ergonomics") echo "selected"; ?>>Ergonomics</option>
+                            <option value="Decor" <?php if($category=="Decor") echo "selected"; ?>>Decor</option>
+                            <option value="Accessories" <?php if($category=="Accessories") echo "selected"; ?>>Accessories</option>
+                            <option value="Wellness" <?php if($category=="Wellness") echo "selected"; ?>>Wellness</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Price Range:</label>
+                        <input type="number" name="minPrice" value="<?php echo htmlspecialchars($minPrice) ?>" placeholder="Min"> - 
+                        <input type="number" name="maxPrice" value="<?php echo htmlspecialchars($maxPrice) ?>" placeholder="Max">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <div>
             <h2>Our Products</h2>
-            <div class="products-grid" id="productsGrid">
-                <!-- Products will be loaded dynamically -->
+            <div id="productsGrid">
+                <?php foreach($Products as $product){ ?>
+                    <?php 
+                        $images = json_decode($product['image_urls'], true);
+                        $Image1 = $images[0];
+                        $Image2 = $images[1];
+                        $Image3 = $images[2];
+                    ?>
+                    <div class="product-card" onclick="window.location.href='product.php?id=<?php echo $product['id'] ?>'">
+                        <img src="http://localhost<?php echo $Image1; ?>" alt="">
+                        <div class="product-card-text">
+                            <h1><?php echo $product['name'] ?></p>
+                            <p>$&nbsp<?php echo $product['price'] ?></p>
+                            <button>Shop</button>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
-        </section>
-    </main>
-
+        </div>
+    </div>
     <?php include __DIR__ . '/../includes/footer.php'; ?>
 
-    <script src="../assets/js/script.js"></script>
+    <script src="/deskly/frontend/assets/js/script.js"></script>
+
+
+
 </body>
 </html>

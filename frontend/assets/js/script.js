@@ -1,20 +1,17 @@
-const featuredDiv = document.getElementById("featured-div");
-const dots = document.querySelectorAll("#featured-dots .dot");
+document.querySelectorAll('#sort, #category-filter').forEach(el => {
+        el.addEventListener('change', () => {
+            document.getElementById('filter-form').submit();
+        });
+    });
 
-function goToSlide(index) {
-  const cardWidth = featuredDiv.querySelector(".featured-div-products").offsetWidth + 20; // +gap
-  featuredDiv.scrollTo({
-    left: cardWidth * index,
-    behavior: "smooth"
-  });
-  setActiveDot(index);
-}
+document.querySelectorAll('input[name="minPrice"], input[name="maxPrice"]').forEach(el => {
+        el.addEventListener('change', () => {
+            document.getElementById('filter-form').submit();
+        });
+    });
 
-function setActiveDot(index) {
-  dots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === index);
-  });
-}
-
-// set first dot active
-if (dots.length > 0) setActiveDot(0);
+document.querySelectorAll(".faq-item").forEach(item => {
+      item.addEventListener("click", () => {
+        item.classList.toggle("active");
+      });
+    });

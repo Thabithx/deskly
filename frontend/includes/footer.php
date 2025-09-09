@@ -3,7 +3,7 @@
         <p id="subscribe">Subscribe.</p>
         <div id="email-input-div">
             <input id="email-input" type="email" placeholder="Email Address">
-            <button type="submit" class="submit-arrow">&rarr;</button>
+            <input type="submit" class="submit-arrow" value="→">
         </div>  
     </div>
     <div id="footer-links-div">
@@ -19,7 +19,7 @@
             <p>SUPPORT</p>
             <a href="/deskly/frontend/pages/contact.php">Contact Us</a>
             <a href="/deskly/frontend/pages/terms.php">Terms & Conditions</a>
-            <a href="/deskly/frontend/pages/terms.php">Privacy Policy</a>
+            <a href="/deskly/frontend/pages/policy.php">Privacy Policy</a>
         </div>
         <div class="footer-links">
             <p>COMPANY</p>

@@ -174,7 +174,7 @@ footer{
 
 button{
    color: rgb(0, 0, 0);
-   padding: 15px 30px;
+   padding: 13px 26px;
    border-radius: 50px;
    font-weight: bold;
    letter-spacing: 1px;
@@ -212,67 +212,6 @@ button:hover {
 .category-card:hover img{
    transform: scale(1.05);
    filter: brightness(1.05);
-}
-.product-grid{
-   display: grid;
-   grid-template-columns: repeat(4, 1fr);
-   gap: 20px;
-}
-
-.product-card{
-   border: 1px solid #eee;
-   border-radius: 10px;
-   overflow: hidden;
-   background: #fff;
-   transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.product-card:hover{
-   box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-   transform: translateY(-2px);
-}
-
-.product-image{
-   width: 100%;
-   height: 220px;
-   object-fit: cover;
-   display: block;
-}
-
-.product-info{
-   padding: 12px 14px;
-   display: flex;
-   flex-direction: column;
-   gap: 6px;
-}
-
-.product-name{
-   text-decoration: none;
-   color: #222;
-   font-weight: 600;
-}
-
-.product-meta{
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-}
-
-.product-price{
-   font-weight: 700;
-}
-
-.add-to-cart{
-   background: #111;
-   color: #fff;
-   border: none;
-   padding: 8px 12px;
-   border-radius: 6px;
-   cursor: pointer;
-}
-
-.add-to-cart:hover{
-   background: #333;
 }
 
 #featured-div{
@@ -360,7 +299,7 @@ button:hover {
 }
 
 #end-banner{
-   margin-top: 40px;
+   margin-top: 50px;
    display: flex;
    width: 100%;
    height: 800px;
@@ -383,4 +322,315 @@ button:hover {
    align-items: start;
    text-align: left;
    margin-top: 50px;
+   margin-right: 40px;
+}
+
+#productsGrid{
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: 20px;
+   padding: 0px 40px;
+}
+
+.product-card{
+   overflow: hidden;
+   transition: transform 0.2s ease;
+   height: auto;
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 60px;
+}
+
+.product-card:hover{
+   transform: translateY(-2px);
+}
+
+.product-image{
+   width: 100%;
+   height: auto;
+   object-fit: contain;
+}
+
+.product-info{
+   flex: 1;
+   padding: 12px 14px;
+   display: flex;
+   flex-direction: column;
+   gap: 6px;
+}
+
+.product-card-text{
+   text-align: center;
+}
+
+.product-card-text button{
+   padding: 8px 26px;
+   font-weight: 300;
+   border:1;
+   margin: 5px;
+   color: white;
+   background: #2f2f2f;
+}
+
+
+.product-card-text button:hover{
+   color: rgb(29, 29, 29);
+   background: #ffffff;
+}
+
+.product-card-text h1{
+   font-weight: 350;
+   font-size: 18px;
+   margin: 0px;
+}
+.product-card-text p{
+   font-weight: 250;
+   font-size: 15px;
+   margin: 6px 0px;
+}
+
+.product-meta{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+
+
+.add-to-cart{
+   background: #111;
+   color: #fff;
+   border: none;
+   padding: 8px 12px;
+   border-radius: 6px;
+   cursor: pointer;
+}
+
+.add-to-cart:hover{
+   background: #333;
+}
+
+.store-page{
+   display: flex;
+}
+
+.faq-section {
+   margin: 60px 40px;
+}
+
+.faq-section h2 {
+   font-weight: 600;
+   font-size: 2rem;
+   margin-bottom: 25px;
+   color:  #2e2e2e;
+}
+
+.faq-item {
+   border-bottom: 1px solid #e0e0e0;
+   padding: 20px 0;
+   cursor: pointer;
+   transition: all 0.3s ease;
+}
+
+.faq-item h3 {
+   font-size: 1.2rem;
+   font-weight: 500;
+   margin: 0;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.faq-answer {
+   max-height: 0;
+   overflow: hidden;
+   opacity: 0;
+   transition: all 0.4s ease;
+   font-size: 0.95rem;
+   margin-top: 10px;
+   color: #2e2e2e;
+}
+
+.faq-item.active .faq-answer {
+   max-height: 200px;
+   opacity: 1;
+}
+
+.contact-section {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 50px;
+   align-items: start;
+   margin: 60px 40px;
+}
+
+.contact-info h2 {
+   font-weight: 600;
+   font-size: 2rem;
+   margin-top: 0px;
+   margin-bottom: 10px;
+   color: #2e2e2e;
+}
+
+.contact-info h3 {
+   margin: 20px 0 5px;
+   font-size: 1.1rem;
+   color: #2e2e2e;
+}
+
+.contact-info p {
+   margin: 0;
+   font-size: 1rem;
+   color: #444;
+}
+
+.contact-form form {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+   padding: 14px;
+   border: 1px solid #ccc;
+   border-radius: 8px;
+   font-size: 1rem;
+   outline: none;
+   transition: border 0.3s ease;
+   font-family: inherit;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+   border: 1px solid #000;
+}
+
+.contact-form button {
+   padding: 14px;
+   font-weight: 600;
+   font-size: 1rem;
+   background: #272727;
+   color: #fff;
+   border: none;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+   background: #333;
+}
+
+@media(max-width: 900px) {
+   .contact-section {
+      grid-template-columns: 1fr;
+   }
+}
+
+
+.terms-section {
+   max-width: 800px;
+   margin: 80px auto;
+   padding: 0 20px;
+   color: #1c1c1c;
+   line-height: 1.6;
+}
+
+.terms-section h2 {
+   font-size: 2.2rem;
+   font-weight: 600;
+   margin-bottom: 40px;
+   text-align: center;
+   color: #1e1e1e;
+   letter-spacing: -0.5px;
+}
+
+.terms-content h3 {
+   font-size: 1.2rem;
+   font-weight: 600;
+   margin: 30px 0 10px;
+   color: #1e1e1e;
+}
+
+.terms-content p {
+   font-size: 1rem;
+   margin-bottom: 20px;
+   color: #333;
+   max-width: 700px;
+}
+
+.terms-content a {
+   color: #000;
+   text-decoration: underline;
+   transition: opacity 0.2s ease;
+}
+
+.terms-content a:hover {
+   opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+   .terms-section {
+      margin: 40px 20px;
+   }
+   .terms-section h2 {
+      font-size: 1.8rem;
+   }
+   .terms-content h3 {
+      font-size: 1rem;
+   }
+   .terms-content p {
+      font-size: 0.95rem;
+   }
+}
+
+/* ---------- Privacy Policy Page ---------- */
+.legal-container {
+    max-width: 800px;
+   margin: 80px auto;
+   padding: 0 20px;
+   color: #1c1c1c;
+   line-height: 1.6;
+}
+
+.legal-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.legal-header h1 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.legal-header .last-updated {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.legal-content h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    color: #000;
+}
+
+.legal-content p {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.legal-content ul {
+    margin: 10px 0 20px 20px;
+    padding: 0;
+    list-style-type: disc;
+}
+
+.legal-content li {
+    margin-bottom: 8px;
 }

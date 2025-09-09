@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deskly - Home</title>
-    <link rel="stylesheet" href="/deskly/frontend/assets/css/styles.css">
+    <link rel="stylesheet" href="/deskly/frontend/assets/css/styles.css?">
 </head>
 <body>
     <?php ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);?>
@@ -46,9 +46,9 @@
     <div id="end-banner">
         <img src="/deskly/frontend/assets/images/end-banner.png" alt="">
         <div id="end-banner-text">
-            <h1>Back pain, stress, and fatigue don’t have to be part of your desk life.</h1>
+            <h1>Back pain and stress don’t have to be part of your desk life.</h1>
             <p>Long hours aren’t the problem, your setup is! With the right ergonomic gear, you can stay comfortable, healthy, and focused all day. Deskly makes it easy.</p>
-            <button>Shop Wellness</button>
+            <button>SHOP WELLNESS</button>
         </div>
     </div>
 
