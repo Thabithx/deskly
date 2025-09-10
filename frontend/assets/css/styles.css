@@ -398,7 +398,7 @@ button:hover {
 
 
 .add-to-cart{
-   background: #111;
+   background: #2e2e2e;
    color: #fff;
    border: none;
    padding: 8px 12px;
@@ -414,16 +414,40 @@ button:hover {
    display: flex;
 }
 
-.faq-section {
-   margin: 60px 40px;
+/* === Global Section Styling === */
+.section {
+   max-width: 800px;
+   margin: 60px auto;
+   padding: 0 20px;
+   line-height: 1.6;
+   color: #1c1c1c;
 }
 
-.faq-section h2 {
-   font-weight: 600;
+.section-title {
    font-size: 2rem;
+   font-weight: 600;
    margin-bottom: 25px;
-   color:  #2e2e2e;
+   color: #2e2e2e;
+   letter-spacing: -0.5px;
+   text-align: center;
 }
+
+.section-subtitle {
+   font-size: 1.2rem;
+   font-weight: 600;
+   margin: 30px 0 10px;
+   color: #1e1e1e;
+}
+
+.section-text {
+   font-size: 1rem;
+   margin-bottom: 20px;
+   color: #333;
+   max-width: 700px;
+}
+
+/* === FAQ Section === */
+.faq-section { margin: 60px 40px; }
 
 .faq-item {
    border-bottom: 1px solid #e0e0e0;
@@ -456,6 +480,7 @@ button:hover {
    opacity: 1;
 }
 
+/* === Contact Section === */
 .contact-section {
    display: grid;
    grid-template-columns: 1fr 1fr;
@@ -464,53 +489,33 @@ button:hover {
    margin: 60px 40px;
 }
 
-.contact-info h2 {
-   font-weight: 600;
-   font-size: 2rem;
-   margin-top: 0px;
-   margin-bottom: 10px;
-   color: #2e2e2e;
-}
+.contact-info h2 { composes: section-title; text-align: left; margin-bottom: 10px; }
+.contact-info h3 { margin: 20px 0 5px; font-size: 1.1rem; color: #2e2e2e; }
+.contact-info p { margin: 0; font-size: 1rem; color: #444; }
 
-.contact-info h3 {
-   margin: 20px 0 5px;
-   font-size: 1.1rem;
-   color: #2e2e2e;
-}
+.contact-form form { display: flex; flex-direction: column; gap: 20px; }
 
-.contact-info p {
-   margin: 0;
-   font-size: 1rem;
-   color: #444;
-}
-
-.contact-form form {
-   display: flex;
-   flex-direction: column;
-   gap: 20px;
-}
-
-.contact-form input, 
+.contact-form input,
 .contact-form textarea {
    padding: 14px;
    border: 1px solid #ccc;
    border-radius: 8px;
    font-size: 1rem;
+   font-family: inherit;
    outline: none;
    transition: border 0.3s ease;
-   font-family: inherit;
 }
 
-.contact-form input:focus, 
+.contact-form input:focus,
 .contact-form textarea:focus {
-   border: 1px solid #000;
+   border-color: #000;
 }
 
 .contact-form button {
    padding: 14px;
    font-weight: 600;
    font-size: 1rem;
-   background: #272727;
+   background: #2e2e2e;
    color: #fff;
    border: none;
    border-radius: 8px;
@@ -518,119 +523,61 @@ button:hover {
    transition: background 0.3s ease;
 }
 
-.contact-form button:hover {
-   background: #333;
-}
+.contact-form button:hover { background: #333; }
 
-@media(max-width: 900px) {
-   .contact-section {
-      grid-template-columns: 1fr;
-   }
-}
-
-
-.terms-section {
+.legal-container{
+   margin: 40px;
    max-width: 800px;
-   margin: 80px auto;
-   padding: 0 20px;
-   color: #1c1c1c;
    line-height: 1.6;
+   color: #2b2b2b;
+   align-items: center;
 }
 
-.terms-section h2 {
-   font-size: 2.2rem;
-   font-weight: 600;
-   margin-bottom: 40px;
-   text-align: center;
-   color: #1e1e1e;
-   letter-spacing: -0.5px;
-}
 
-.terms-content h3 {
-   font-size: 1.2rem;
-   font-weight: 600;
-   margin: 30px 0 10px;
+#about-banner{
+   display: flex;
+   width: 100%;
+   height: 800px;
+   justify-content: space-between;
+   position: relative;
+   margin: 0px;
    color: #1e1e1e;
 }
 
-.terms-content p {
-   font-size: 1rem;
-   margin-bottom: 20px;
-   color: #333;
-   max-width: 700px;
+#about-banner img{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
 }
 
-.terms-content a {
-   color: #000;
-   text-decoration: underline;
-   transition: opacity 0.2s ease;
+#about-banner-text{
+   position: absolute;
+   width: 40%;
+   top: 10%;
+   right: 5%;
 }
 
-.terms-content a:hover {
-   opacity: 0.6;
+.about-container h2{
+   margin: 0;
+   font-size: 1.5rem;
+   font-weight: 550;
+   margin-top: 50px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-   .terms-section {
-      margin: 40px 20px;
-   }
-   .terms-section h2 {
-      font-size: 1.8rem;
-   }
-   .terms-content h3 {
-      font-size: 1rem;
-   }
-   .terms-content p {
-      font-size: 0.95rem;
-   }
+.about-container p,ul{
+   font-size: 1.1rem;
 }
 
-/* ---------- Privacy Policy Page ---------- */
-.legal-container {
-    max-width: 800px;
-   margin: 80px auto;
-   padding: 0 20px;
-   color: #1c1c1c;
-   line-height: 1.6;
+.about-container{
+   margin: 40px;
 }
 
-.legal-header {
-    text-align: center;
-    margin-bottom: 40px;
+.pages-container{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
-.legal-header h1 {
-    font-size: 2.4rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-    letter-spacing: -0.5px;
-}
-
-.legal-header .last-updated {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.legal-content h2 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-top: 30px;
-    margin-bottom: 12px;
-    color: #000;
-}
-
-.legal-content p {
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.legal-content ul {
-    margin: 10px 0 20px 20px;
-    padding: 0;
-    list-style-type: disc;
-}
-
-.legal-content li {
-    margin-bottom: 8px;
+.pages-container h1{
+   text-align: center;;
 }
