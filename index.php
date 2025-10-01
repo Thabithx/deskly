@@ -24,16 +24,24 @@
 
     <div id="category-div">
         <div class="category-card">
-            <a href="/deskly/frontend/pages/ergonomics.php"><img src="/deskly/frontend/assets/images/ergonomics.png" alt=""></a>
+            <a href="/deskly/frontend/pages/ergonomics.php">
+                <img src="/deskly/frontend/assets/images/ergonomics.png" alt="">
+            </a>
         </div>
         <div class="category-card">
-            <img src="/deskly/frontend/assets/images/wellness.png" alt="">
+            <a href="/deskly/frontend/pages/wellness.php">
+                <img src="/deskly/frontend/assets/images/wellness.png" alt="">
+            </a>
         </div>
         <div class="category-card">
-            <img src="/deskly/frontend/assets/images/decors.png" alt="">
+            <a href="/deskly/frontend/pages/decor.php">
+                <img src="/deskly/frontend/assets/images/decors.png" alt="">
+            </a>
         </div>
         <div class="category-card">
-            <img src="/deskly/frontend/assets/images/accessories.png" alt="">
+            <a href="/deskly/frontend/pages/accessories.php">
+                <img src="/deskly/frontend/assets/images/accessories.png" alt="">
+            </a>
         </div>
     </div>
 
@@ -48,12 +56,16 @@
         <div id="end-banner-text">
             <h1>Back pain and stress don’t have to be part of your desk life.</h1>
             <p>Long hours aren’t the problem, your setup is! With the right ergonomic gear, you can stay comfortable, healthy, and focused all day. Deskly makes it easy.</p>
-            <button>SHOP WELLNESS</button>
+            <a href="/deskly/frontend/pages/wellness.php">
+                <button id="end-banner-button">SHOP WELLNESS</button>
+            </a>
+            
         </div>
     </div>
 
     <?php include __DIR__ . '/frontend/includes/footer.php'; ?>
 
     <script src="/deskly/frontend/assets/js/script.js"></script>
+
 </body>
 </html>

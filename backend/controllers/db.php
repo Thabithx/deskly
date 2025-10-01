@@ -32,6 +32,12 @@ function fetchProducts(){
     return $data;
 }
 
+function fetchSingleProduct($id){
+    $mysql=dbConnect();
+    $singleProduct=$mysql->query("SELECT * FROM products WHERE product_id=$id");
+    return $singleProduct->fetch_assoc();
+}
+
 function fetchAccessories(){
     $mysql=dbConnect();
     $accessories=$mysql->query("SELECT * FROM products WHERE category='Accessories'");
