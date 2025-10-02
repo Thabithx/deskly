@@ -14,7 +14,6 @@
             <h2>Shopping Cart</h2>
             <div class="cart-container">
                 <div class="cart-items" id="cartItems">
-                    <!-- Cart items will be loaded dynamically -->
                 </div>
                 <div class="cart-summary">
                     <h3>Order Summary</h3>
