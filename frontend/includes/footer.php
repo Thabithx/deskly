@@ -24,8 +24,6 @@
         <div class="footer-links">
             <p>COMPANY</p>
             <a href="/deskly/frontend/pages/about.php">About Us</a>
-            <a href="/deskly/frontend/pages/store.php">Blog</a>
-            <a href="/deskly/frontend/pages/store.php">Newsletter</a>
         </div>
         <div class="footer-links">
             <p>CONNECT</p>

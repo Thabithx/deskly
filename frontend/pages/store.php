@@ -12,7 +12,7 @@
     <?php 
     $Products = fetchProducts();
     
-    $sort = $_GET['sort'] ?? 'newest';
+    /*$sort = $_GET['sort'] ?? 'newest';
     $category = $_GET['category'] ?? '';
     $minPrice = $_GET['minPrice'] ?? '';
     $maxPrice = $_GET['maxPrice'] ?? '';
@@ -40,13 +40,13 @@
             return $b['id'] <=> $a['id'];
         }
     });
-    ?>
+    */?>
 
     <div id="store-page">
         <div id="controls">
             <form method="get" id="filter-form">
                 <div id="sort-products">
-                    <label for="sort">Sort by:</label>
+                    <label for="sort">Sort:</label>
                     <select name="sort" id="sort">
                         <option value="newest" <?php if($sort=="newest") echo "selected"; ?>>Newest</option>
                         <option value="price_asc" <?php if($sort=="price_asc") echo "selected"; ?>>Price: Low to High</option>
@@ -75,8 +75,7 @@
         </div>
 
 
-        <div>
-            <h2>Our Products</h2>
+        <div> 
             <div id="productsGrid">
                 <?php foreach($Products as $product){ ?>
                     <?php include __DIR__.'/../includes/productCard.php'?>

@@ -74,3 +74,13 @@ function fetchErgonomics(){
     }
     return $data;
 }
+
+function fetchUsers(){
+    $mysql=dbConnect();
+    $users=$mysql->query("SELECT * FROM users");
+    $data=[];
+    while($row=$users->fetch_assoc()){
+        $data[] = $row;
+    }
+    return $data;
+}

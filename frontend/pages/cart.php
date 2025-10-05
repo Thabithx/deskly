@@ -7,14 +7,19 @@
     <link rel="stylesheet" href="../assets/css/styles.css?v=1">
 </head>
 <body>
-    <?php include __DIR__ . '/../includes/header.php'; ?>
+    <?php include __DIR__ . '/../includes/header.php';?>
 
-    <main>
+
+
+    <div class="cart">
         <section class="cart-section">
-            <h2>Shopping Cart</h2>
             <div class="cart-container">
+                <!-- Cart Items Container -->
                 <div class="cart-items" id="cartItems">
+                    <!-- Products will be dynamically added here -->
                 </div>
+
+                <!-- Cart Summary -->
                 <div class="cart-summary">
                     <h3>Order Summary</h3>
                     <div class="summary-line">
@@ -33,7 +38,8 @@
                 </div>
             </div>
         </section>
-    </main>
+    </div>
+
 
     <?php include __DIR__ . '/../includes/footer.php'; ?>
 

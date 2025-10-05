@@ -32,7 +32,13 @@
                     <input type="number" class="input-box" value="1" min="1" max="10">
                     <button class="plus" aria-label="Increase">&plus;</button>
                 </div>
-                <button id="add-cart-btn">ADD TO CART</button>
+                <button 
+                    id="add-cart-btn"
+                    data-id="<?php echo $product['product_id']; ?>"
+                    data-name="<?php echo htmlspecialchars($product['name']); ?>"
+                    data-price="<?php echo $product['price']; ?>"
+                >ADD TO CART</button>
+
             </div>
         </div>
 
