@@ -12,7 +12,6 @@
     <div class="content-container">
         <h1>FAQ & Messages Management</h1>
 
-        <!-- FAQ Section -->
         <div class="faq-section">
             <h2>Frequently Asked Questions</h2>
             <div class="faq-item">
@@ -35,7 +34,6 @@
             </div>
         </div>
 
-        <!-- Messages Section -->
         <div class="messages-section">
             <h2>User Messages</h2>
             <table class="messages-table">
@@ -72,7 +70,6 @@
                             <button class="action-btn delete">Delete</button>
                         </td>
                     </tr>
-                    <!-- Add more rows dynamically from database -->
                 </tbody>
             </table>
         </div>
@@ -81,7 +78,6 @@
     <?php include __DIR__.'/src/includes/footer.php' ?>
 
     <script>
-        // FAQ toggle
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             item.querySelector('.faq-question').addEventListener('click', () => {

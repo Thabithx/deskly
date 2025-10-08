@@ -703,7 +703,6 @@ button:hover {
   border: 2px;
 }
 
-/* Hide the number input spin buttons */
 .input-box::-webkit-inner-spin-button,
 .input-box::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -728,7 +727,6 @@ button:hover {
    text-align: center;
 }
 
-/* Main image */
 .main-image {
     text-align: center;
 }
@@ -739,7 +737,6 @@ button:hover {
     transition: opacity 0.4s ease-in-out;
 }
 
-/* Swiper thumbnails */
 #image-swiper {
     display: flex;
     justify-content: center;
@@ -822,10 +819,9 @@ button:hover {
   background: #434343;
 }
 
-/* Base reset for clean look */
 #controls {
   width: 100%;
-  padding: 25px 40px;
+  padding: 25px 0px;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(14px);
   box-shadow: 0 8px 12px -6px rgba(0, 0, 0, 0.12);
@@ -892,7 +888,6 @@ input[type="number"]::placeholder {
   text-align: center;
 }
 
-/* Dropdown styling */
 select {
   background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
   background-repeat: no-repeat;
@@ -901,7 +896,6 @@ select {
 }
 
 
-/* ---- Base layout ---- */
 .cart {
   width: 100%;
   min-height: 100vh;
@@ -911,14 +905,12 @@ select {
   padding: 60px 0;
 }
 
-/* ---- Section ---- */
 .cart-section {
   width: 90%;
   max-width: 1200px;
 }
 
 
-/* ---- Heading ---- */
 .cart-section h2 {
   font-size: 28px;
   font-weight: 700;
@@ -927,7 +919,6 @@ select {
   letter-spacing: -0.5px;
 }
 
-/* ---- Cart container ---- */
 .cart-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -935,7 +926,6 @@ select {
   align-items: start;
 }
 
-/* ---- Cart items ---- */
 .cart-items {
   display: flex;
   flex-direction: column;
@@ -943,7 +933,6 @@ select {
   padding-right: 20px;
 }
 
-/* ---- Example cart item style ---- */
 .cart-item {
   display: flex;
   align-items: center;
@@ -984,7 +973,6 @@ select {
   color: #111;
 }
 
-/* ---- Order summary ---- */
 .cart-summary {
    background: #fbfbfd;
    border-radius: 20px;
@@ -1018,7 +1006,6 @@ select {
   color: #000;
 }
 
-/* ---- Checkout button ---- */
 .checkout-btn {
   width: 100%;
   padding: 14px 0;
@@ -1039,7 +1026,6 @@ select {
   box-shadow: 0 8px 20px rgba(57, 57, 57, 0.25);
 }
 
-/* ---- Organized Cart Item ---- */
 .cart-item {
     display: flex;
     align-items: center;
@@ -1057,7 +1043,6 @@ select {
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* Image placeholder for future enhancement */
 .cart-item img {
     width: 90px;
     height: 90px;
@@ -1067,7 +1052,6 @@ select {
     flex-shrink: 0;
 }
 
-/* Main item info container */
 .item-info {
     flex: 1;
     display: flex;
@@ -1075,21 +1059,18 @@ select {
     gap: 8px;
 }
 
-/* Product name */
 .item-name {
     font-size: 16px;
     font-weight: 600;
     color: #111;
 }
 
-/* Price */
 .item-price {
     font-weight: 700;
     font-size: 16px;
     color: #222;
 }
 
-/* Quantity display (you can later replace with +/- buttons) */
 .item-quantity {
     font-size: 14px;
     color: #555;
@@ -1099,9 +1080,6 @@ select {
     width: fit-content;
 }
 
-/* Remove button */
-
-/* Align price and quantity neatly if needed */
 .cart-item .item-price {
     margin-top: 4px;
 }
@@ -1114,9 +1092,6 @@ main.profile-page {
   padding: 0 20px;
 }
 
-/* ==========================
-   PROFILE CARD
-   ========================== */
 
 .profile-card {
   display: flex;
@@ -1146,7 +1121,7 @@ main.profile-page {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  overflow: hidden; /* ✅ ensures overlay fits perfectly inside */
+  overflow: hidden; 
   cursor: pointer;
 }
 
@@ -1158,7 +1133,6 @@ main.profile-page {
   transition: all 0.3s ease;
 }
 
-/* ✅ overlay covers image fully */
 .upload-overlay {
   position: absolute;
   top: 0;
@@ -1175,7 +1149,6 @@ main.profile-page {
   transition: opacity 0.3s ease;
 }
 
-/* Upload icon */
 .upload-icon {
   width: 42px;
   height: 42px;
@@ -1184,7 +1157,6 @@ main.profile-page {
   filter: brightness(1.2) contrast(1.1);
 }
 
-/* Text below icon */
 .upload-overlay span {
   font-size: 13px;
   color: #fff;
@@ -1192,7 +1164,6 @@ main.profile-page {
   letter-spacing: 0.4px;
 }
 
-/* Show overlay on hover */
 .profile-img:hover .upload-overlay {
   opacity: 1;
 }
@@ -1240,9 +1211,6 @@ main.profile-page {
   background-color: #222;
 }
 
-/* ==========================
-   SHIPPING ADDRESS
-   ========================== */
 
 .shipping-address {
   background: #fff;
@@ -1286,9 +1254,6 @@ main.profile-page {
   color: #444;
 }
 
-/* ==========================
-   ORDERS SECTION
-   ========================== */
 
 .orders-section {
   background: #fff;
@@ -1339,12 +1304,11 @@ main.profile-page {
   font-size: 0.95rem;
 }
 
-/* ===== PROFILE PAGE SIGN OUT BUTTON ===== */
 .logout-btn {
     margin-top: 15px;
-    background-color: #ffffff; /* white button */
-    color: #4a4a4a;           /* text color */
-    border: 2px solid #000;   /* fixed border */
+    background-color: #ffffff; 
+    color: #4a4a4a;         
+    border: 2px solid #000;  
     border-radius: 25px;
     padding: 9px 25px;
     font-size: 14px;
@@ -1363,4 +1327,58 @@ main.profile-page {
 .logout-btn:hover {
     background-color: #000000;
     color: white;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+#price-range {
+    display: flex;
+    align-items: center;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#price-range input[type="number"] {
+    width: 100px;
+    padding: 8px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    background: #f5f5f7;
+    text-align: center;
+    transition: all 0.25s ease;
+}
+
+#price-range input[name="minPrice"] {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-right: none;
+}
+
+#price-range input[name="maxPrice"] {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+#price-range input[type="number"]:focus {
+    outline: none;
+    border-color: #6f6f6f;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+    background: #fff;
+}
+
+#price-range .divider {
+    width: 2px;
+    height: 24px;
+    background: #ccc;
+    margin: 0 2px;
+    border-radius: 2px;
+}
+#price-range input[type="number"]:hover {
+    background: #f9f9fb;
 }

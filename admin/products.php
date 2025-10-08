@@ -1,5 +1,5 @@
 <?php
-include __DIR__.'/../backend/controllers/db.php'; // adjust path
+include __DIR__.'/../backend/controllers/db.php'; 
 
 $categories = [
     'Ergonomics' => fetchErgonomics(),
@@ -23,7 +23,6 @@ $categories = [
     <div class="container">
         <h1>Products Dashboard</h1>
 
-        <!-- Add Product Section -->
         <section class="add-product">
             <h2>Add New Product</h2>
             <form id="add-product-form" method="POST" enctype="multipart/form-data" action="/deskly/admin/backend/controllers/add_product.php">
@@ -56,7 +55,6 @@ $categories = [
             </form>
         </section>
 
-        <!-- Existing Products By Category -->
         <?php foreach($categories as $categoryName => $products): ?>
             <?php if(!empty($products)): ?>
                 <section class="products-list">

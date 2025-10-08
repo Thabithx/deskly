@@ -14,12 +14,8 @@
     <div class="cart">
         <section class="cart-section">
             <div class="cart-container">
-                <!-- Cart Items Container -->
                 <div class="cart-items" id="cartItems">
-                    <!-- Products will be dynamically added here -->
                 </div>
-
-                <!-- Cart Summary -->
                 <div class="cart-summary">
                     <h3>Order Summary</h3>
                     <div class="summary-line">

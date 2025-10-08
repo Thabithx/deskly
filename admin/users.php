@@ -16,7 +16,6 @@
     <div class="users-container">
         <h1>User Management</h1>
 
-        <!-- USERS TABLE -->
         <section>
             <h2>Users</h2>
             <table>
@@ -56,7 +55,6 @@
             </table>
         </section>
 
-        <!-- ADMINISTRATORS TABLE -->
         <section>
             <h2>Administrators</h2>
             <table>

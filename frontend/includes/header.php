@@ -16,7 +16,7 @@
         <?php else: ?>
             <div class="nav-search">
                 <form action="/deskly/frontend/pages/store.php" method="get">
-                    <input type="text" name="q" placeholder="Search products..." class="search-input">
+                    <input type="text" name="q" placeholder="Search products..." class="search-input"a>
                     <button type="submit" class="search-btn">Search</button>
                 </form>
             </div>

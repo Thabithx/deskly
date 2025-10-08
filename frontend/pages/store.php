@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store - Deskly</title>
     <link rel="stylesheet" href="../assets/css/styles.css?v=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+
 </head>
 <body>
     <?php include __DIR__ . '/../includes/header.php'; ?>
@@ -12,7 +15,7 @@
     <?php 
     $Products = fetchProducts();
     
-    /*$sort = $_GET['sort'] ?? 'newest';
+    $sort = $_GET['sort'] ?? 'newest';
     $category = $_GET['category'] ?? '';
     $minPrice = $_GET['minPrice'] ?? '';
     $maxPrice = $_GET['maxPrice'] ?? '';
@@ -40,7 +43,7 @@
             return $b['id'] <=> $a['id'];
         }
     });
-    */?>
+    ?>
 
     <div id="store-page">
         <div id="controls">
@@ -65,9 +68,10 @@
                             <option value="Wellness" <?php if($category=="Wellness") echo "selected"; ?>>Wellness</option>
                         </select>
                     </div>
-                    <div>
+                    <div id="price-range">
                         <label>Price Range:</label>
-                        <input type="number" name="minPrice" value="<?php echo htmlspecialchars($minPrice) ?>" placeholder="Min"> - 
+                        <input type="number" name="minPrice" value="<?php echo htmlspecialchars($minPrice) ?>" placeholder="Min">
+                        <span class="divider"></span>
                         <input type="number" name="maxPrice" value="<?php echo htmlspecialchars($maxPrice) ?>" placeholder="Max">
                     </div>
                 </div>

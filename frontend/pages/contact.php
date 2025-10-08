@@ -10,7 +10,6 @@
   <?php include __DIR__ . '/../includes/header.php'; ?>
 
   <main>
-    <!-- FAQ Section -->
     <section class="faq-section">
       <h2>Frequently Asked Questions</h2>
 
@@ -36,7 +35,6 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact-section">
       <div class="contact-info">
         <h2>Contact Us.</h2>

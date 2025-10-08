@@ -1,9 +1,8 @@
 <?php
 include __DIR__ . '/../../backend/controllers/db.php';
 
-// ===== FETCH DATA FROM DB =====
 $users = fetchUsers();
-$user = $users[0]; // For now, take top user (later replace with session-based fetch)
+$user = $users[0];
 
 $featuredProducts = fetchFeaturedProducts(6);
 ?>
@@ -23,7 +22,6 @@ $featuredProducts = fetchFeaturedProducts(6);
   <?php include __DIR__ . '/../includes/header.php'; ?>
 
   <main class="profile-page">
-    <!-- ===== USER INFO ===== -->
     <section class="profile-overview">
       <div class="profile-card">
         <div class="profile-left">
@@ -47,7 +45,6 @@ $featuredProducts = fetchFeaturedProducts(6);
       </div>
     </section>
 
-    <!-- ===== SHIPPING ADDRESS ===== -->
     <section class="shipping-address">
       <div class="section-header">
         <h3><i class="fa fa-location-dot"></i> Shipping Address</h3>
@@ -65,7 +62,6 @@ $featuredProducts = fetchFeaturedProducts(6);
       </div>
     </section>
 
-    <!-- ===== MY ORDERS ===== -->
     <section class="orders-section">
       <h3><i class="fa fa-box"></i> My Orders</h3>
       <div class="order-tabs">
