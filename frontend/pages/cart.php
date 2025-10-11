@@ -19,7 +19,7 @@
                         <th>Image</th>
                         <th>Product</th>
                         <th>Price</th>
-                        <th>Qty</th>
+                        <th>Quantity</th>
                         <th>Total</th>
                         <th>Action</th>
                     </tr>

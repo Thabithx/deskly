@@ -257,3 +257,24 @@ async function updateCartQuantity(productId, quantity) {
         console.error("Error updating quantity:", err);
     }
 }
+
+async function proceedToCheckout() {
+    try {
+        const response = await fetch("/deskly/backend/api/checkout.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+        });
+        const data = await response.json();
+
+        if (data.success) {
+            alert("Checkout successful!");
+            window.location.href = "cart.php";
+        } else {
+            alert("Checkout failed: " + data.message);
+        }
+    } catch (err) {
+        console.error("Checkout error:", err);
+        alert("Something went wrong.");
+    }
+}
+
