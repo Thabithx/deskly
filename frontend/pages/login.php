@@ -13,7 +13,7 @@
         <section class="auth-section">
             <div class="auth-container">
                 <h2>Login</h2>
-                <form id="loginForm" onsubmit="handleLogin(event)">
+               <form id="loginForm" method="POST" action="/deskly/backend/api/login.php">
                     <div class="form-group">
                         <input type="email" id="email" name="email" placeholder="Email" required>
                     </div>

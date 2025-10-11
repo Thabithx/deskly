@@ -9,31 +9,46 @@
 <body>
     <?php include __DIR__ . '/../includes/header.php';?>
 
+    <div class="cart-container">
+        <!-- Cart Items -->
+        <div class="cart-items">
+            <h2>Your Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cartItems">
+                    <tr>
+                        <td colspan="6" style="text-align:center;">Loading cart items...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-
-    <div class="cart">
-        <section class="cart-section">
-            <div class="cart-container">
-                <div class="cart-items" id="cartItems">
-                </div>
-                <div class="cart-summary">
-                    <h3>Order Summary</h3>
-                    <div class="summary-line">
-                        <span>Subtotal:</span>
-                        <span id="subtotal">$0.00</span>
-                    </div>
-                    <div class="summary-line">
-                        <span>Tax:</span>
-                        <span id="tax">$0.00</span>
-                    </div>
-                    <div class="summary-line total">
-                        <span>Total:</span>
-                        <span id="total">$0.00</span>
-                    </div>
-                    <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
-                </div>
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+            <h3>Order Summary</h3>
+            <div class="summary-line">
+                <span>Subtotal:</span>
+                <span id="subtotal">$0.00</span>
             </div>
-        </section>
+            <div class="summary-line">
+                <span>Tax (10%):</span>
+                <span id="tax">$0.00</span>
+            </div>
+            <div class="summary-line total">
+                <span>Total:</span>
+                <span id="total">$0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
     </div>
 
 

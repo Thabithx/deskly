@@ -26,7 +26,7 @@
                 <a href="/deskly/frontend/pages/store.php"><img src="/deskly/frontend/assets/images/search.svg" alt="search" width="25" height="25"></a>
             <?php endif; ?>
             <a href="/deskly/frontend/pages/cart.php"><img src="/deskly/frontend/assets/images/bag.svg" alt="bag" width="23" height="23"></a>
-            <a href="/deskly/frontend/pages/login.php"><img src="/deskly/frontend/assets/images/profile.svg" alt="profile" width="29" height="29"></a>
+            <a href="/deskly/frontend/pages/profile.php"><img src="/deskly/frontend/assets/images/profile.svg" alt="profile" width="29" height="29"></a>
         </div>
    </div>
 </header>

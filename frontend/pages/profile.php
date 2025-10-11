@@ -1,10 +1,15 @@
 <?php
+session_start();
 include __DIR__ . '/../../backend/controllers/db.php';
 
-$users = fetchUsers();
-$user = $users[0];
 
-$featuredProducts = fetchFeaturedProducts(6);
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: /deskly/frontend/pages/login.php");
+    exit;
+}
+$userId = $_SESSION['user_id'];
+$user = fetchUser($userId);
 ?>
 
 <!DOCTYPE html>
@@ -27,20 +32,20 @@ $featuredProducts = fetchFeaturedProducts(6);
         <div class="profile-left">
           <div class="profile-img">
             <img src=<?= htmlspecialchars($user['profile_pic']); ?> alt="Profile Picture" id="profileImage">
-            <label for="uploadImage" class="upload-overlay">
-              <span>Update</span>
-            </label>
-            <input type="file" id="uploadImage" hidden>
           </div>
         </div>
 
         <div class="profile-right">
           <h2><?= htmlspecialchars($user['first_name'] . ' ' . $user['last_name']); ?></h2>
           <p><i class="fa fa-envelope"></i> <?= htmlspecialchars($user['email']); ?></p>
-          <p><i class="fa fa-phone"></i> <?= htmlspecialchars($user['phone']); ?></p>
+          <p>
+            <?php if ($user['phone']) { ?>
+                <i class="fa fa-phone"></i> <?= htmlspecialchars($user['phone']); ?>
+            <?php } ?>
+          </p>
           <p><i class="fa fa-calendar"></i> Member since: <?= date('F Y', strtotime($user['created_at'])); ?></p>
-          <button class="edit-profile-btn"><i class="fa fa-pen"></i> Edit Profile</button>
-           <a href="/deskly/logout.php" class="logout-btn"><i class="fa fa-sign-out-alt"></i> Sign Out</a>
+          <a href="/deskly/frontend/pages/editprofile.php" class="edit-profile-btn"><i class="fa fa-pen"></i>Edit Profile</a>
+           <a href="/deskly/backend/api/logout.php" class="logout-btn"><i class="fa fa-sign-out-alt"></i> Sign Out</a>
         </div>
       </div>
     </section>
@@ -48,17 +53,20 @@ $featuredProducts = fetchFeaturedProducts(6);
     <section class="shipping-address">
       <div class="section-header">
         <h3><i class="fa fa-location-dot"></i> Shipping Address</h3>
-        <button class="edit-btn"><i class="fa fa-pen"></i> Edit</button>
+        <a href="/deskly/frontend/pages/editprofile.php" class="edit-profile-btn"><i class="fa fa-pen"></i>&nbsp Edit</a>
       </div>
       <div class="address-card">
-        <p><strong><?= htmlspecialchars($user['first_name'] . ' ' . $user['last_name']); ?></strong></p>
         <p><?= htmlspecialchars($user['address']); ?></p>
         <?php if (!empty($user['landmark'])): ?>
           <p><?= htmlspecialchars($user['landmark']); ?></p>
         <?php endif; ?>
         <p><?= htmlspecialchars($user['city']); ?>, <?= htmlspecialchars($user['postcode']); ?></p>
         <p><?= htmlspecialchars($user['country']); ?></p>
-        <p><i class="fa fa-phone"></i> <?= htmlspecialchars($user['phone']); ?></p>
+        <p>
+          <?php if ($user['phone']) { ?>
+            <i class="fa fa-phone"></i> <?= htmlspecialchars($user['phone']); ?>
+          <?php } ?>
+        </p>
       </div>
     </section>
 

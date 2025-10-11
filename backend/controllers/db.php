@@ -84,3 +84,14 @@ function fetchUsers(){
     }
     return $data;
 }
+
+function fetchUser($id){
+    $conn = dbConnect();
+    $stmt = $conn->prepare("SELECT id, first_name, last_name, email, password, address, city, postcode, country, landmark, phone, profile_pic FROM users WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    return $user;
+}
+
