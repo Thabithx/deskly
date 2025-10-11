@@ -73,11 +73,11 @@ $user = fetchUser($userId);
     <section class="orders-section">
       <h3><i class="fa fa-box"></i> My Orders</h3>
       <div class="order-tabs">
-        <button class="active">All Orders</button>
-        <button>Pending</button>
-        <button>Delivered</button>
-        <button>Cancelled</button>
+        <button class="order-filter active" data-status="all">All Orders</button>
+        <button class="order-filter" data-status="pending">Pending</button>
+        <button class="order-filter" data-status="delivered">Delivered</button>
       </div>
+
 
       <div class="orders-grid">
         <p style="color: #777; text-align:center;">No orders found for <?= htmlspecialchars($user['first_name']); ?> yet.</p>
@@ -90,5 +90,6 @@ $user = fetchUser($userId);
     <?php include __DIR__ . '/../includes/featured.php'; ?>
     <?php include __DIR__ . '/../includes/footer.php'; ?>
 
+     <script src="/deskly/frontend/assets/js/script.js"></script>
 </body>
 </html>

@@ -190,7 +190,7 @@ async function loadCart() {
         if (result.redirect) return window.location.href = result.redirect;
 
         if (!result.success || !result.items.length) {
-            cartContainer.innerHTML = "<tr><td colspan='6' style='text-align:center;'>Your cart is empty.</td></tr>";
+            cartContainer.innerHTML = "<tr><td colspan='6'style='text-align:center; padding:20px;'> Your cart is empty.<br><br><a href='/deskly/frontend/pages/store.php'><button style='padding:10px 20px; cursor:pointer;'>Continue Shopping</button></a></td></tr>";
             subtotalEl.textContent = taxEl.textContent = totalEl.textContent = "$0.00";
             return;
         }
@@ -278,3 +278,81 @@ async function proceedToCheckout() {
     }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const ordersGrid = document.querySelector(".orders-grid");
+
+    async function loadOrders() {
+        try {
+            const res = await fetch("/deskly/backend/api/getorders.php");
+            const data = await res.json();
+
+            if (!data.success) {
+                ordersGrid.innerHTML = `<p style="color:#777;text-align:center;">${data.message}</p>`;
+                return;
+            }
+
+            const orders = data.orders;
+            if (orders.length === 0) {
+                ordersGrid.innerHTML = `<p style="color:#777;text-align:center;">No orders found.</p>`;
+                return;
+            }
+
+            ordersGrid.innerHTML = "";
+            orders.forEach(order => {
+                const orderDiv = document.createElement("div");
+                orderDiv.classList.add("order-card");
+                orderDiv.dataset.status = order.status;
+                
+                let itemsHTML = "";
+                order.items.forEach(item => {
+                    itemsHTML += `
+                        <div class="order-item">
+                            <img src="${item.image}" width="50" alt="${item.name}">
+                            <p>${item.name} x ${item.quantity}</p>
+                            <p>$${(item.price * item.quantity).toFixed(2)}</p>
+                        </div>
+                    `;
+                });
+
+                orderDiv.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <h4>Order ID: ${order.order_id} <span class="status">${order.status}</span></h4>
+                            <p>Order Date: ${new Date(order.order_date).toLocaleDateString()}</p>
+                            <p>Estimated Delivery: ${new Date(order.estimated_delivery).toLocaleDateString()}</p>
+                            <p>Total: $${order.total_amount.toFixed(2)}</p>
+                        </div>
+                        <div><a href="/deskly/frontend/pages/trackorder.php?order_id=${order.order_id}" 
+                        class="track-btn"><button>Track Order</button></a></div>
+                    </div>
+                    <div class="order-items">${itemsHTML}</div>
+                `;
+                ordersGrid.appendChild(orderDiv);
+            });
+
+            // Apply filtering
+            const filterBtns = document.querySelectorAll(".order-filter");
+            filterBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    filterBtns.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+
+                    const status = btn.dataset.status.toLowerCase();
+                    ordersGrid.querySelectorAll(".order-card").forEach(card => {
+                        const cardStatus = card.dataset.status.toLowerCase();
+                        card.style.display = (status === "all" || cardStatus === status)
+                            ? "block"
+                            : "none";
+                    });
+                });
+            });
+
+
+        } catch (err) {
+            ordersGrid.innerHTML = `<p style="color:#777;text-align:center;">Failed to load orders.</p>`;
+            console.error(err);
+        }
+    }
+
+    loadOrders();
+});
