@@ -1786,3 +1786,54 @@ input[type=number] {
     gap: 0.4rem;
   }
 }
+/* FAQ container */
+.faq-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Question */
+.faq-question {
+    font-weight: 500;
+    font-size: 19px; /* readable size */
+    position: relative;
+    padding-left: 35px; /* space for + icon */
+    display: flex;
+    align-items: center;
+}
+
+/* + / - icon */
+.faq-question::before {
+    content: "+";
+    position: absolute;
+    right: 10px;
+    font-size: 18px; /* nice and visible */
+    font-weight: bold;
+    width: 20px;
+    text-align: center;
+    color: #000000;
+    transition: transform 0.2s;
+}
+
+.faq-item.active .faq-question::before {
+    content: "-";
+}
+
+/* Answer */
+.faq-answer {
+    display: none;
+    margin-top: 10px;
+    padding-left: 35px;
+    font-size: 16px; /* readable text */
+    line-height: 1.5;
+    color: #333;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}

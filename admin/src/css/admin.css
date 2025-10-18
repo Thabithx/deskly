@@ -239,6 +239,19 @@ th {
     background: #e6f9e6;
     color: #2d8a2d;
 }
+.status.processing {
+    background: #fffcec;
+    color: #985e01;
+}
+.status.pending {
+    background: #fee9ff;
+    color: #5f028a;
+}
+.status.shipped {
+    background: #eaefff;
+    color: #0000ff;
+}
+
 
 .pagination {
     display: flex;
@@ -637,3 +650,244 @@ td[colspan="5"] {
 
         .action-btn.reply { background-color: #676767; }
         .action-btn.delete { background-color: #000000; }   
+
+tr.clickable { cursor: pointer; }
+tr.clickable:hover { background-color: #f5f5f5; }
+
+/* Title */
+.container h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #111;
+  letter-spacing: -0.5px;
+}
+
+/* Form layout */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Form groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #222;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  border: 1px solid #e3e3e3;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  background: #fff;
+  color: #111;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #000000;
+  box-shadow: 0 0 0 3px rgba(97, 97, 97, 0.15);
+  outline: none;
+}
+
+/* Preview containers */
+.preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.preview-img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease;
+}
+
+.preview-img:hover {
+  transform: scale(1.05);
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 12px 26px;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-primary {
+  background: #363636;
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #000000;
+  box-shadow: 0 6px 20px rgba(134, 134, 134, 0.25);
+}
+
+.btn-secondary {
+  background: #f3f3f3;
+  color: #111;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: #e5e5e5;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* File input */
+input[type="file"] {
+  background: #fafafa;
+  border: 1px dashed #ccc;
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #000000;
+  background: hsl(0, 0%, 100%);
+}
+
+.preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.preview-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.preview-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+
+.preview-img::after {
+  content: '×';
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  padding-bottom: 2px;
+  width: 22px;
+  height: 22px;
+  background: rgba(255, 0, 0, 0.85);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.25s, transform 0.2s;
+}
+
+.preview-img:hover::after {
+  opacity: 1;
+  transform: scale(1.1);
+}
+/* Input + Edit Button Container */
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Clean modern input */
+.reply-input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #111;
+    font-size: 14px;
+    flex: 1;
+}
+
+.reply-input:focus {
+    outline: none;
+    border-color: #007aff; /* nice blue highlight */
+}
+
+/* Disabled input style */
+.reply-input[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Buttons */
+.action-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+/* Edit button (next to input) */
+.edit-reply {
+    background-color: #ddd;
+    color: #111;
+}
+
+/* Submit button */
+.submit-reply {
+    background-color: #007aff;
+    color: #fff;
+}
+
+/* Delete button */
+.delete {
+    background-color: #ff3b30;
+    color: #fff;
+}
+
+/* Hover effect for all buttons */
+.action-btn:hover {
+    opacity: 0.85;
+}
+
+/* Action buttons container (Submit + Delete) */
+.action-buttons {
+    display: flex;
+    gap: 6px;
+}

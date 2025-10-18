@@ -14,7 +14,7 @@
         <section class="auth-section">
             <div class="auth-container">
                 <h2>Sign Up</h2>
-                <form id="registerForm" onsubmit="handleRegister(event)">
+                <form id="registerForm" action="/deskly/backend/api/signup.php" method="POST">
                     <div class="form-group">
                         <input placeholder="First Name" type="text" id="firstName" name="firstName" required>
                     </div>

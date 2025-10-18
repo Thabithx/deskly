@@ -356,3 +356,109 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loadOrders();
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const registerForm = document.getElementById("registerForm");
+
+    registerForm.addEventListener("submit", async (e) => {
+        e.preventDefault(); // prevent normal form submission
+
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+        // Basic validation
+        if (!firstName || !lastName || !email || !password || !confirmPassword) {
+            alert("Please fill out all fields.");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            return;
+        }
+
+        try {
+            const formData = new FormData(registerForm);
+            const response = await fetch("/deskly/backend/api/signup.php", {
+                method: "POST",
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.status === "success") {
+                alert(result.message);
+                window.location.href = "login.php"; // redirect after success
+            } else {
+                alert(result.message);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("An unexpected error occurred. Please try again.");
+        }
+    });
+});
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault(); // prevent default form submission
+
+  const form = e.target;
+  const formData = new FormData(form); // collect all form data
+
+  try {
+    const response = await fetch('/deskly/backend/api/sendMessage.php', {
+      method: 'POST',
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      alert(data.message); // success alert
+      form.reset(); // clear form
+    } else {
+      alert(data.error || 'Something went wrong.');
+    }
+  } catch (err) {
+    console.error(err);
+    alert('Error sending message. Please try again.');
+  }
+});
+async function fetchTopFAQs() {
+    const container = document.getElementById('faq-container');
+    container.innerHTML = ''; // Clear previous content
+
+    try {
+        const res = await fetch('/deskly/backend/api/gettopfaq.php'); // same API you used in admin
+        const faqs = await res.json();
+
+        // Only take top 4
+        faqs.slice(0, 4).forEach(faq => {
+            const faqItem = document.createElement('div');
+            faqItem.classList.add('faq-item');
+
+            faqItem.innerHTML = `
+                <div class="faq-question">${faq.question}</div>
+                <div class="faq-answer">${faq.answer}</div>
+            `;
+
+            container.appendChild(faqItem);
+        });
+
+        // Toggle functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+    } catch (err) {
+        console.error('Failed to fetch FAQs:', err);
+    }
+}
+
+// Run on page load
+document.addEventListener('DOMContentLoaded', fetchTopFAQs);
+

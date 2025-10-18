@@ -25,7 +25,7 @@ $categories = [
 
         <section class="add-product">
             <h2>Add New Product</h2>
-            <form id="add-product-form" method="POST" enctype="multipart/form-data" action="/deskly/admin/backend/controllers/add_product.php">
+            <form id="add-product-form" method="POST" enctype="multipart/form-data" action="/deskly/backend/api/addproduct.php">
                 <div class="form-group">
                     <label for="name">Product Name</label>
                     <input type="text" name="name" id="name" required>
@@ -75,8 +75,8 @@ $categories = [
                                     <p class="price">$<?= number_format($product['price'], 2) ?></p>
                                 </div>
                                 <div class="product-actions">
-                                    <a href="/deskly/admin/pages/edit_product.php?id=<?= $product['product_id'] ?>" class="btn btn-edit">Edit</a>
-                                    <a href="/deskly/admin/backend/controllers/delete_product.php?id=<?= $product['product_id'] ?>" class="btn btn-delete" onclick="return confirm('Are you sure?')">Delete</a>
+                                    <a href="/deskly/admin/editproduct.php?id=<?= $product['product_id'] ?>" class="btn btn-edit">Edit</a>
+                                    <a href="/deskly/admin/backend/controllers/delete_product.php?id=<?= $product['product_id'] ?>" class="btn btn-delete" >Delete</a>
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -89,24 +89,5 @@ $categories = [
 
     <?php include __DIR__.'/src/includes/footer.php'; ?>
     <script src="/deskly/admin/src/js/admin.js"></script>
-
-    <script>
-        const imagesInput = document.getElementById('images');
-        const previewContainer = document.getElementById('preview-images');
-
-        imagesInput.addEventListener('change', function() {
-            previewContainer.innerHTML = '';
-            Array.from(this.files).forEach(file => {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.classList.add('preview-img');
-                    previewContainer.appendChild(img);
-                }
-                reader.readAsDataURL(file);
-            });
-        });
-    </script>
 </body>
 </html>
