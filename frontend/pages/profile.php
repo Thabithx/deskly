@@ -70,11 +70,13 @@ $user = fetchUser($userId);
       </div>
     </section>
 
-    <section class="orders-section">
+    <section id="orders-section" class="orders-section">
       <h3><i class="fa fa-box"></i> My Orders</h3>
       <div class="order-tabs">
         <button class="order-filter active" data-status="all">All Orders</button>
         <button class="order-filter" data-status="pending">Pending</button>
+        <button class="order-filter" data-status="processing">Processing</button>
+        <button class="order-filter" data-status="shipped">Shipped</button>
         <button class="order-filter" data-status="delivered">Delivered</button>
       </div>
 

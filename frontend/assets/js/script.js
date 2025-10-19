@@ -268,7 +268,7 @@ async function proceedToCheckout() {
 
         if (data.success) {
             alert("Checkout successful!");
-            window.location.href = "cart.php";
+            window.location.href = "profile.php#orders-section";
         } else {
             alert("Checkout failed: " + data.message);
         }
