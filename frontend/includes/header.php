@@ -26,6 +26,12 @@
                 <a href="/deskly/frontend/pages/store.php"><img src="/deskly/frontend/assets/images/search.svg" alt="search" width="25" height="25"></a>
             <?php endif; ?>
             <a href="/deskly/frontend/pages/cart.php"><img src="/deskly/frontend/assets/images/bag.svg" alt="bag" width="23" height="23"></a>
+            <a href="/deskly/frontend/pages/notifications.php" title="Notifications">
+                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+            </a>
             <a href="/deskly/frontend/pages/profile.php"><img src="/deskly/frontend/assets/images/profile.svg" alt="profile" width="29" height="29"></a>
         </div>
    </div>

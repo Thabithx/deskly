@@ -4,7 +4,7 @@ require __DIR__ . '/../controllers/db.php';
 
 $conn = dbConnect();
 
-// Get and decode JSON data
+//Get and decode JSON data
 $data = json_decode(file_get_contents('php://input'), true);
 
 if (!isset($data['order_id']) || !isset($data['status'])) {
@@ -20,7 +20,7 @@ if ($order_id <= 0 || $status === '') {
     exit;
 }
 
-// ✅ Update the order status in the database
+//Update the order status
 $stmt = $conn->prepare("UPDATE orders SET status = ? WHERE order_id = ?");
 $stmt->bind_param("si", $status, $order_id);
 

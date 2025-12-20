@@ -23,7 +23,7 @@ if ($productId == 0) {
 $conn = dbConnect();
 
 $check = $conn->prepare("SELECT quantity FROM cart WHERE user_id = ? AND product_id = ?");
-$check->bind_param("ii", $userId, $productId); // bind types (i = integer)
+$check->bind_param("ii", $userId, $productId); 
 $check->execute();
 $result = $check->get_result();
 $existing = $result->fetch_assoc();

@@ -2,8 +2,6 @@
 session_start();
 include __DIR__ . '/../../backend/controllers/db.php';
 
-
-
 if (!isset($_SESSION['user_id'])) {
     header("Location: /deskly/frontend/pages/login.php");
     exit;

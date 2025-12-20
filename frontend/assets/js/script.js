@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ===== Filter / Sort / Price Inputs =====
+    //Filter
     document.querySelectorAll('#sort, #category-filter').forEach(el => {
         el.addEventListener('change', () => {
             const filterForm = document.getElementById('filter-form');
@@ -15,12 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ===== FAQ Toggle =====
+    //faq toggle
     document.querySelectorAll(".faq-item").forEach(item => {
         item.addEventListener("click", () => item.classList.toggle("active"));
     });
 
-    // ===== Product Quantity Buttons (Product Page) =====
+    //adjust product quantity
     const minusBtn = document.querySelector(".minus");
     const plusBtn = document.querySelector(".plus");
     const inputBox = document.querySelector(".input-box");
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ===== Product Image Gallery =====
+    //product gallery
     const activeImage = document.getElementById("active-image");
     const thumbs = document.querySelectorAll("#image-swiper .thumb");
     if (activeImage && thumbs.length > 0) {
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ===== Search =====
+    //search
     const searchInput = document.querySelector(".search-input");
     const products = document.querySelectorAll(".product-card");
     const grid = document.getElementById("productsGrid");
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ===== Logout =====
+    //logout
     const logoutBtn = document.querySelector(".logout-btn");
     if (logoutBtn) {
         logoutBtn.addEventListener("click", e => {
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ===== Add to Cart (Product Page) =====
+    //add to cart
     const addCartBtn = document.getElementById("add-cart-btn");
     if (addCartBtn) {
         addCartBtn.addEventListener("click", async () => {
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const result = await res.json();
                 if (result.redirect) return window.location.href = result.redirect;
                 alert(result.success ? "Product added to cart!" : result.message || "Error adding product.");
-                loadCart(); // refresh cart
+                loadCart(); 
             } catch (err) {
                 console.error(err);
                 alert("Error adding product. Try again.");
@@ -131,14 +131,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ===== Load Cart on Page Load =====
     loadCart();
 
-    // ===== CART BUTTON EVENT DELEGATION (outside loadCart) =====
+    //manipulate cart items
     const cartContainer = document.getElementById("cartItems");
     if (cartContainer) {
 
-        // Handle + / - / remove buttons
         cartContainer.addEventListener("click", async e => {
             const target = e.target;
             const productId = target.dataset.id;
@@ -160,7 +158,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Handle direct input changes
         cartContainer.addEventListener("input", async e => {
             if (!e.target.classList.contains("qty-input")) return;
             const productId = e.target.dataset.id;
@@ -172,9 +169,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-}); // end DOMContentLoaded
+});
 
-// ===== CART FUNCTIONS =====
+//cart
 async function loadCart() {
     try {
         const cartContainer = document.getElementById("cartItems");
@@ -330,7 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ordersGrid.appendChild(orderDiv);
             });
 
-            // Apply filtering
+            //filtering
             const filterBtns = document.querySelectorAll(".order-filter");
             filterBtns.forEach(btn => {
                 btn.addEventListener("click", () => {
@@ -360,7 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const registerForm = document.getElementById("registerForm");
 
     registerForm.addEventListener("submit", async (e) => {
-        e.preventDefault(); // prevent normal form submission
+        e.preventDefault();
 
         const firstName = document.getElementById("firstName").value.trim();
         const lastName = document.getElementById("lastName").value.trim();
@@ -368,7 +365,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = document.getElementById("password").value.trim();
         const confirmPassword = document.getElementById("confirmPassword").value.trim();
 
-        // Basic validation
         if (!firstName || !lastName || !email || !password || !confirmPassword) {
             alert("Please fill out all fields.");
             return;
@@ -390,7 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (result.status === "success") {
                 alert(result.message);
-                window.location.href = "login.php"; // redirect after success
+                window.location.href = "/deskly/"; 
             } else {
                 alert(result.message);
             }
@@ -401,10 +397,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 document.getElementById('contact-form').addEventListener('submit', async function(e) {
-  e.preventDefault(); // prevent default form submission
+  e.preventDefault();
 
   const form = e.target;
-  const formData = new FormData(form); // collect all form data
+  const formData = new FormData(form); 
 
   try {
     const response = await fetch('/deskly/backend/api/sendMessage.php', {
@@ -415,8 +411,8 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     const data = await response.json();
 
     if (data.success) {
-      alert(data.message); // success alert
-      form.reset(); // clear form
+      alert(data.message); 
+      form.reset();
     } else {
       alert(data.error || 'Something went wrong.');
     }
@@ -427,13 +423,13 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 });
 async function fetchTopFAQs() {
     const container = document.getElementById('faq-container');
-    container.innerHTML = ''; // Clear previous content
+    container.innerHTML = '';
 
     try {
-        const res = await fetch('/deskly/backend/api/gettopfaq.php'); // same API you used in admin
+        const res = await fetch('/deskly/backend/api/gettopfaq.php');
         const faqs = await res.json();
 
-        // Only take top 4
+        // Only get top 4 faqs
         faqs.slice(0, 4).forEach(faq => {
             const faqItem = document.createElement('div');
             faqItem.classList.add('faq-item');
@@ -446,7 +442,7 @@ async function fetchTopFAQs() {
             container.appendChild(faqItem);
         });
 
-        // Toggle functionality
+        // Toggle
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             item.querySelector('.faq-question').addEventListener('click', () => {
@@ -459,6 +455,5 @@ async function fetchTopFAQs() {
     }
 }
 
-// Run on page load
 document.addEventListener('DOMContentLoaded', fetchTopFAQs);
 

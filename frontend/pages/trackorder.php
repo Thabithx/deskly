@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const orderDetails = document.getElementById("orderDetails");
   const timelineProgress = document.getElementById("timelineProgress");
 
-  // Helper to format datetime nicely
   function formatDateTime(timestamp) {
     const options = {
       weekday: "short",

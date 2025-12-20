@@ -10,6 +10,25 @@ $userId = $_SESSION['user_id'];
 $conn->begin_transaction();
 
 try {
+    //Update User Details
+    $input = json_decode(file_get_contents('php://input'), true);
+    if ($input) {
+        $first_name = $input['first_name'] ?? '';
+        $last_name = $input['last_name'] ?? '';
+        $phone = $input['phone'] ?? '';
+        $address = $input['address'] ?? '';
+        $landmark = $input['landmark'] ?? '';
+        $city = $input['city'] ?? '';
+        $postcode = $input['postcode'] ?? '';
+        $country = $input['country'] ?? '';
+
+        if ($first_name && $last_name && $address && $city && $postcode && $country) {
+            $updateUser = $conn->prepare("UPDATE users SET first_name=?, last_name=?, phone=?, address=?, landmark=?, city=?, postcode=?, country=? WHERE id=?");
+            $updateUser->bind_param("ssssssssi", $first_name, $last_name, $phone, $address, $landmark, $city, $postcode, $country, $userId);
+            $updateUser->execute();
+            $updateUser->close();
+        }
+    }
     $cartItems = [];
     $stmt = $conn->prepare("SELECT product_id, quantity FROM cart WHERE user_id = ?");
     $stmt->bind_param("i", $userId);

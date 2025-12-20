@@ -10,7 +10,6 @@
     <?php include __DIR__ . '/../includes/header.php';?>
 
     <div class="cart-container">
-        <!-- Cart Items -->
         <div class="cart-items">
             <h2>Your Cart</h2>
             <table>
@@ -32,7 +31,6 @@
             </table>
         </div>
 
-        <!-- Cart Summary -->
         <div class="cart-summary">
             <h3>Order Summary</h3>
             <div class="summary-line">
@@ -47,7 +45,7 @@
                 <span>Total:</span>
                 <span id="total">$0.00</span>
             </div>
-            <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+            <a href="checkout.php" class="checkout-btn" style="text-decoration:none; text-align:center;">Proceed to Checkout</a>
         </div>
     </div>
 

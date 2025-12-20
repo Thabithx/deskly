@@ -13,7 +13,7 @@
       <div class="faq-section">
           <h2>Frequently Asked Questions</h2>
           <div id="faq-container">
-              <!-- Top 4 FAQs will be populated dynamically -->
+              <!-- Top 4 FAQs -->
           </div>
       </div>
 

@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Create image upload folder if not exists
     $uploadDir = __DIR__ . '/../../uploads/products/';
 if (!is_dir($uploadDir)) {
-    mkdir($uploadDir, 0777, true); // create recursively
+    mkdir($uploadDir, 0777, true);
 }   
     // Handle multiple image uploads
     foreach ($_FILES['images']['tmp_name'] as $key => $tmpName) {

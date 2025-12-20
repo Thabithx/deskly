@@ -46,9 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $update->bind_param("ssdssi", $name, $description, $price, $category, $imageJson, $productId);
 
     if ($update->execute()) {
-        echo "<script>alert('✅ Product updated successfully!'); window.location.href='/deskly/admin/products.php';</script>";
+        echo "<script>alert('Product updated successfully!'); window.location.href='/deskly/admin/products.php';</script>";
     } else {
-        echo "<script>alert('❌ Failed to update product.'); window.history.back();</script>";
+        echo "<script>alert('Failed to update product.'); window.history.back();</script>";
     }
 
     $update->close();

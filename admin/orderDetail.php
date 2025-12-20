@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require __DIR__ . '/../backend/controllers/db.php'; // DB connection
+require __DIR__ . '/../backend/controllers/db.php'; 
 $conn = dbConnect();
 
 $order_id = isset($_GET['order_id']) ? intval($_GET['order_id']) : 0;
@@ -69,7 +69,6 @@ function formatDate($dateStr) {
 <title>Order Details - #<?= $order['order_id'] ?></title>
 <link rel="stylesheet" href="/deskly/admin/src/css/admin.css">
 <style>
-/* Global */
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: #f5f5f7;
@@ -89,12 +88,10 @@ main.order-details-container {
     box-shadow: 0 8px 30px rgba(0,0,0,0.08);
 }
 
-/* Sections */
 section {
     margin-bottom: 40px;
 }
 
-/* Customer & Order Info Grid */
 .order-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -109,7 +106,6 @@ section {
     margin: 8px 0;
 }
 
-/* Products Table */
 .order-products table {
     width: 100%;
     border-collapse: collapse;
@@ -131,7 +127,6 @@ section {
     background-color: #f5f5f5;
 }
 
-/* Status */
 .status-select {
     padding: 8px 12px;
     border-radius: 8px;

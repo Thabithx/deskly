@@ -6,14 +6,12 @@
 <title>FAQ & Messages - Admin Dashboard</title>
 <link rel="stylesheet" href="/deskly/admin/src/css/admin.css">
 <style>
-/* Input + Edit Button Container */
 .input-group {
     display: flex;
     align-items: center;
     gap: 6px;
 }
 
-/* Clean modern input */
 .reply-input {
     padding: 8px 12px;
     border-radius: 6px;
@@ -29,13 +27,11 @@
     border-color: #007aff;
 }
 
-/* Disabled input style */
 .reply-input[disabled] {
     opacity: 0.7;
     cursor: not-allowed;
 }
 
-/* Buttons */
 .action-btn {
     padding: 6px 14px;
     border-radius: 6px;
@@ -45,36 +41,30 @@
     transition: background 0.2s;
 }
 
-/* Edit button (next to input) */
 .edit-reply {
     background-color: #ddd;
     color: #111;
 }
 
-/* Submit button */
 .submit-reply {
     background-color: #007aff;
     color: #fff;
 }
 
-/* Delete button */
 .delete {
     background-color: #ff3b30;
     color: #fff;
 }
 
-/* Hover effect */
 .action-btn:hover {
     opacity: 0.85;
 }
 
-/* Action buttons container (Submit + Delete) */
 .action-buttons {
     display: flex;
     gap: 6px;
 }
 
-/* Status colors */
 .status-pending { color: red; font-weight: bold; }
 .status-answered { color: green; font-weight: bold; }
 </style>
@@ -88,8 +78,30 @@
 
     <div class="faq-section">
         <h2>Frequently Asked Questions</h2>
+        
+        <!-- Add New FAQ Form -->
+        <div style="background:#f0f0f0; padding:20px; border-radius:8px; margin-bottom:20px;">
+            <h3 style="margin-bottom:15px;">Add New FAQ</h3>
+            <form id="addFaqForm">
+                <div style="margin-bottom:10px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:500;">Question:</label>
+                    <input type="text" id="faqQuestion" placeholder="Enter question" required 
+                        style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px;">
+                </div>
+                <div style="margin-bottom:10px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:500;">Answer:</label>
+                    <textarea id="faqAnswer" placeholder="Enter answer" rows="4" required 
+                        style="width:100%; padding:10px; border:1px solid #ccc; border-radius:5px; resize:vertical;"></textarea>
+                </div>
+                <button type="submit" style="padding:10px 20px; background:#007bff; color:white; border:none; border-radius:5px; cursor:pointer;">
+                    Add FAQ
+                </button>
+            </form>
+        </div>
+
+        <h3 style="margin-bottom:10px;">Current FAQs (Top 4)</h3>
         <div id="faq-container">
-            <!-- Top 4 FAQs will be populated dynamically -->
+            <!-- Top 4 FAQs -->
         </div>
     </div>
 
@@ -109,7 +121,7 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Messages populated dynamically -->
+                <!-- Messages -->
             </tbody>
         </table>
     </div>
@@ -221,7 +233,7 @@ function addActionListeners() {
 
 async function fetchTopFAQs() {
     const container = document.getElementById('faq-container');
-    container.innerHTML = ''; // Clear previous content
+    container.innerHTML = '';
 
     try {
         const res = await fetch('/deskly/backend/api/gettopfaq.php');
@@ -238,7 +250,7 @@ async function fetchTopFAQs() {
             container.appendChild(faqItem);
         });
 
-        // FAQ toggle functionality
+        // FAQ toggle
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             item.querySelector('.faq-question').addEventListener('click', () => {
@@ -252,8 +264,43 @@ async function fetchTopFAQs() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchMessages(); // existing messages fetch
-    fetchTopFAQs(); // fetch top FAQs
+    fetchMessages(); 
+    fetchTopFAQs(); 
+    
+    // Add FAQ Form Handler
+    document.getElementById('addFaqForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const question = document.getElementById('faqQuestion').value.trim();
+        const answer = document.getElementById('faqAnswer').value.trim();
+        
+        if (!question || !answer) {
+            alert('Please fill in both question and answer');
+            return;
+        }
+        
+        try {
+            const res = await fetch('/deskly/backend/api/add_faq.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question, answer })
+            });
+            
+            const data = await res.json();
+            
+            if (data.success) {
+                alert('FAQ added successfully!');
+                document.getElementById('faqQuestion').value = '';
+                document.getElementById('faqAnswer').value = '';
+                fetchTopFAQs(); // Refresh FAQ list
+            } else {
+                alert('Failed to add FAQ: ' + data.message);
+            }
+        } catch (err) {
+            console.error(err);
+            alert('Error adding FAQ');
+        }
+    });
 });
 
 </script>

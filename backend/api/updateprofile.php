@@ -9,9 +9,9 @@ if (!isset($_SESSION['user_id'])) {
 
 $userId = $_SESSION['user_id'];
 
-$conn = dbConnect(); // MySQLi connection
+$conn = dbConnect();
 
-// Sanitize input
+
 $first_name = trim($_POST['first_name'] ?? '');
 $last_name  = trim($_POST['last_name'] ?? '');
 $phone      = trim($_POST['phone'] ?? '');

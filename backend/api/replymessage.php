@@ -3,7 +3,7 @@ header('Content-Type: application/json');
 require __DIR__ . '/../controllers/db.php';
 $conn = dbConnect();
 
-// Get JSON input
+//Get JSON input
 $input = json_decode(file_get_contents('php://input'), true);
 
 $id = $input['id'] ?? null;
@@ -17,7 +17,7 @@ if (!$id || empty($answer)) {
 $stmt = $conn->prepare("UPDATE contact_messages SET answer = ?, status = 'Answered' WHERE id = ?");
 $stmt->bind_param("si", $answer, $id);
 
-// Optional: log input for debugging
+//log input
 file_put_contents('php://stderr', print_r($input, true));
 
 if ($stmt->execute()) { 

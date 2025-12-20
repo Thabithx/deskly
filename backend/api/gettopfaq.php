@@ -2,13 +2,11 @@
 require __DIR__ . '/../controllers/db.php';
 $conn = dbConnect();
 
-// Fetch top 4 most frequently asked answered messages
+// Fetch top 4 FAQs created by admin
 $query = "
-    SELECT message, answer, COUNT(message) as freq
-    FROM contact_messages
-    WHERE status = 'Answered'
-    GROUP BY message, answer
-    ORDER BY freq DESC
+    SELECT question, answer
+    FROM faqs
+    ORDER BY created_at DESC
     LIMIT 4
 ";
 
@@ -18,9 +16,8 @@ $faqs = [];
 if ($result) {
     while ($row = $result->fetch_assoc()) {
         $faqs[] = [
-            'question' => $row['message'],
-            'answer' => $row['answer'],
-            'freq' => $row['freq']
+            'question' => $row['question'],
+            'answer' => $row['answer']
         ];
     }
 }

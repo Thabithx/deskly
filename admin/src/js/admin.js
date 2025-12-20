@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.getElementById("searchInput");
     const tableRows = document.querySelectorAll("#ordersBody tr");
 
-    // Simple search filter
+    //search filter
     searchInput.addEventListener("keyup", () => {
         const searchValue = searchInput.value.toLowerCase();
         tableRows.forEach(row => {
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Active button styling for filter buttons
+    // Active button styling
     document.querySelectorAll(".filter-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Clickable rows -> redirect to orderDetail.php
     document.querySelectorAll("tr.clickable").forEach(row => {
         row.addEventListener("click", () => {
             const orderId = row.getAttribute("data-order-id");
@@ -56,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Pagination
     const entriesSelect = document.getElementById("entries");
     const tbody = document.getElementById("ordersBody");
     let currentPage = 1;
@@ -72,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
             row.style.display = (index >= (currentPage-1)*rowsPerPage && index < currentPage*rowsPerPage) ? "" : "none";
         });
 
-        // Build pagination buttons
+        //pagination buttons
         for(let i=1; i<=totalPages; i++){
             const btn = document.createElement("button");
             btn.textContent = i;
@@ -88,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
         paginate();
     });
 
-    paginate(); // initial pagination
+    paginate();
 });
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".remove-btn").forEach(button => {
@@ -105,7 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
           body: `id=${encodeURIComponent(userId)}`
         });
 
-        // Read raw text first (to debug possible PHP errors)
         const text = await response.text();
         console.log("Server response:", text);
 
@@ -118,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (data.success) {
-          // Smooth fade-out animation before removing
+          // Smooth fade-out animation
           row.style.transition = "opacity 0.4s ease, transform 0.3s ease";
           row.style.opacity = "0";
           row.style.transform = "translateX(-10px)";
@@ -240,15 +237,15 @@ async function fetchMessages() {
             const data = await res.json();
 
             if (data.success) {
-                alert('✅ Reply sent successfully');
-                fetchMessages(); // refresh table
+                alert('Reply sent successfully');
+                fetchMessages();
             } else {
-                alert('❌ ' + (data.error || 'Failed to reply'));
+                alert((data.error || 'Failed to reply'));
             }
         });
     });
 
-    // Add delete button listeners
+    //delete button listeners
     document.querySelectorAll('.action-btn.delete').forEach(btn => {
         btn.addEventListener('click', async () => {
             const id = btn.dataset.id;
@@ -258,14 +255,13 @@ async function fetchMessages() {
             const data = await res.json();
 
             if (data.success) {
-                alert('✅ Message deleted');
+                alert('Message deleted');
                 fetchMessages();
             } else {
-                alert('❌ ' + (data.error || 'Failed to delete'));
+                alert((data.error || 'Failed to delete'));
             }
         });
     });
 }
 
-// Initial load
 fetchMessages();

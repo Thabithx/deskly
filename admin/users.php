@@ -56,7 +56,7 @@
         </section>
 
         <section>
-            <h2>Administrators</h2>
+            <h2>Administrators <a href="add_admin.php" style="font-size:0.7em; padding:6px 14px; background:#000; color:white; text-decoration:none; border-radius:5px; margin-left:15px; display:inline-block;">+ Add Admin</a></h2>
             <table>
                 <thead>
                     <tr>

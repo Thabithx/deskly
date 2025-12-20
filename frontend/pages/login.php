@@ -13,7 +13,7 @@
         <section class="auth-section">
             <div class="auth-container">
                 <h2>Login</h2>
-               <form id="loginForm" method="POST" action="/deskly/backend/api/login.php">
+               <form id="loginForm" method="POST">
                     <div class="form-group">
                         <input type="email" id="email" name="email" placeholder="Email" required>
                     </div>
@@ -31,6 +31,31 @@
 
     <?php include __DIR__ . '/../includes/footer.php'; ?>
 
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            try {
+                const response = await fetch('/deskly/backend/api/login.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    window.location.href = data.redirect;
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                alert('An error occurred during login. Please try again.');
+            }
+        });
+    </script>
     <script src="../assets/js/script.js"></script>
 </body>
 </html>

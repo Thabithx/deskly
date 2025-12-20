@@ -16,7 +16,7 @@
 
     <div id="banner-bg">
         <div id="banner-text">
-            <h2>Healthy Desk,</h2>
+            <h2 style="color: rgba(36, 36, 36, 1)">Healthy Desk,</h2>
             <h2 style="color: rgb(58, 58, 58)">Healthy Mind.</h2>
             <a href="/deskly/frontend/pages/store.php"><button id="banner-button">SHOP</button></a>
         </div>
