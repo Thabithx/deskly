@@ -55,10 +55,6 @@
 
 Deskly isn't just another online store, it's a e-commerce platform built to revolutionize how people approach their workspace wellness. You dont have to waste time searching for the right products and end up wasting time and money buying low quality products, Deskly has the right high quality products that help to improve your desk health.
 
-I engineered a **premium dark-themed UI** using Vanilla CSS with glassmorphism effects, creating a visually stunning interface that rivals industry-leading e-commerce platforms. The backend architecture features a robust RESTful API system with role-based access control, ensuring secure transactions and seamless data flow between frontend and database.
-
-Behind the premium aesthetics lies a high-performance database architecture with optimized queries that handle complex product catalogs, user sessions, real-time cart management, and order processing with sub-second response times.
-
 ### Built With
 
 *   **Backend:** PHP 8+ (RESTful API Architecture)
