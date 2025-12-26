@@ -67,8 +67,8 @@ Deskly isn't just another online store, it's a e-commerce platform built to revo
 
 ## Key Features
 
-### 🎨 Premium Dark Theme UI
-A meticulously crafted design system featuring glassmorphism effects, smooth animations, and a professional dark aesthetic that creates an immersive shopping experience rivaling premium e-commerce platforms.
+### 🎨 Premium user friendly UI
+A premium yet simple UI which includes seamless animations and glassmorhism effects making it appealing and easy to use for customers.
 
 ### 🔐 Enterprise-Grade Security
 Comprehensive security framework with role-based access control (Admin/User), secure session management, password hashing, and SQL injection protection ensuring customer data integrity.
