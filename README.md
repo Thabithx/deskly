@@ -18,8 +18,6 @@
     <a href="#key-features"><strong>Explore the features »</strong></a>
     <br />
     <br />
-    <a href="#demo">View Demo</a>
-    ·
     <a href="https://github.com/Thabithx/deskly/issues">Report Bug</a>
     ·
     <a href="https://github.com/Thabithx/deskly/issues">Request Feature</a>
@@ -74,7 +72,7 @@ A premium yet simple UI which includes seamless animations and glassmorhism effe
 Comprehensive security framework with role-based access control (Admin/User), secure session management, password hashing, and SQL injection protection ensuring customer data integrity.
 
 ### 🛒 Advanced Cart Management
-Intelligent shopping cart system with persistent storage, real-time quantity updates, dynamic pricing calculations, and seamless checkout flow—all powered by optimized backend APIs.
+Intelligent shopping cart system with persistent storage, real-time quantity updates, dynamic pricing calculations, and seamless checkout flow, all powered by optimized backend APIs.
 
 ### 📦 Smart Product Catalog
 Dynamic product categorization (Ergonomics, Wellness, Decor, Accessories) with featured products, advanced filtering, and intuitive navigation designed to maximize conversion rates.
@@ -166,7 +164,7 @@ Follow these steps to get a local copy up and running.
 
 ### Admin Workflow
 
-1.  **Admin Login:** Access the admin panel at `/admin/` with admin credentials
+1.  **Admin Login:** Access the admin logging in with admin credentials
 2.  **Product Management:** Add, edit, or remove products from the catalog
 3.  **Order Processing:** Review orders, update statuses, and manage fulfillment
 4.  **User Management:** View registered users and manage permissions
