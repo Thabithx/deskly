@@ -65,34 +65,34 @@ Deskly isn't just another online store, it's a e-commerce platform built to revo
 
 ## Key Features
 
-### 🎨 Premium user friendly UI
+### Premium user friendly UI
 A premium yet simple UI which includes seamless animations and glassmorhism effects making it appealing and easy to use for customers.
 
-### 🔐 Enterprise-Grade Security
+### Enterprise-Grade Security
 Comprehensive security framework with role-based access control (Admin/User), secure session management, password hashing, and SQL injection protection ensuring customer data integrity.
 
-### 🛒 Advanced Cart Management
+### Advanced Cart Management
 Intelligent shopping cart system with persistent storage, real-time quantity updates, dynamic pricing calculations, and seamless checkout flow, all powered by optimized backend APIs.
 
-### 📦 Smart Product Catalog
+### Smart Product Catalog
 Dynamic product categorization (Ergonomics, Wellness, Decor, Accessories) with featured products, advanced filtering, and intuitive navigation designed to maximize conversion rates.
 
-### 🔔 Real-Time Notification System
+### Real-Time Notification System
 Intelligent alert mechanism that keeps users informed of order status updates, admin responses, and important account activities through a centralized notification hub.
 
-### 👤 User Profile & Order Tracking
+### User Profile & Order Tracking
 Comprehensive user dashboard featuring profile management, order history, real-time order tracking, and personalized notification preferences for a tailored experience.
 
-### 🎯 Admin Command Center
+### Admin Command Center
 Powerful administrative panel providing complete control over products, users, orders, FAQs, and site content—all through an intuitive, dashboard-style interface.
 
-### 📊 Order Management System
+### Order Management System
 End-to-end order processing pipeline with status tracking (Pending, Approved, Shipped, Delivered, Cancelled), detailed order views, and streamlined fulfillment workflows.
 
-### 💬 Customer Support Integration
+### Customer Support Integration
 Built-in contact system with FAQ management, allowing administrators to curate helpful resources while maintaining direct communication channels with customers.
 
-### 🚀 Performance Optimized
+### Performance Optimized
 Clean, efficient codebase with optimized database queries, minimal dependencies, and fast page load times—delivering a smooth experience even under high traffic.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
